@@ -11,3 +11,18 @@ jobs:
         run: |
           node -v
           npm -v
+  pararell-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: View SW Version
+        run: sw_vers
+  
+  depandent-job:
+      runs-on: window-latest
+      needs: run-shell-commands
+      steps:
+        - name: echo the string
+          run: Write-Output "Windows String"
+        - name: Error Step
+          run: doesnotexist
+
